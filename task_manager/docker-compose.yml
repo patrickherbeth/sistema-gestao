@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: flask run --host=0.0.0.0
+    volumes:
+      - .:/app
+    ports:
+      - "5001:5000"  # Mapeia a porta 5001 no host para a porta 5000 no container
+    environment:
+      - FLASK_APP=app
+      - FLASK_ENV=development
